@@ -6,7 +6,8 @@ require('dotenv').config();
 
 
 // List files in Google Drive
-async function populateWordTemplate(fileName, templateFileId, model) {
+async function populateWordTemplate(params) {
+  let {source, recordId, fileName, templateFileId, model} = params;
   console.log('Fetching files from shared folder:', templateFileId);
   try {
         
@@ -31,7 +32,11 @@ async function populateWordTemplate(fileName, templateFileId, model) {
     // Send the file
     let name = fileName ? fileName + ".docx" : "undefined.docx"
     let fileProcessed = await svc.files.upload(name, buffer);
-    return fileProcessed;
+    return {
+      source,
+      recordId,
+      fileProcessed
+    };
   } catch (err) {
     console.error('The API returned an error:', err);
     throw err;

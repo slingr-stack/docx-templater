@@ -10,9 +10,8 @@ svc.hooks.onSvcStop = (cause) => {
 }
 
 svc.functions.parse = ({ params, id }) => {
-    let {fileName, templateId, model } = params;
-
-    populateWordTemplate(fileName, templateId, model)
+    
+    populateWordTemplate(params)
         .then((content) => {
             svc.events.send('onParseComplete', {
                 content: content,
