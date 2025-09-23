@@ -8,7 +8,6 @@ require('dotenv').config();
 // List files in Google Drive
 async function populateWordTemplate(params) {
   let {source, recordId, fileName, templateFileId, model} = params;
-  console.log('Fetching files from shared folder:', templateFileId);
   try {
         
     let file = await svc.files.download(templateFileId);   
