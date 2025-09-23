@@ -1,0 +1,60 @@
+{
+"label": "docxtemplater",
+"name": "docxtemplater",
+"apiVersion": "v1",
+"configurationType": "GLOBAL",
+"deployment": {
+    "jsService": true,
+    "profiles":[
+        {
+            "name": "small",
+            "label": "Small",
+            "memory": 128,
+            "description": "Small Memory Allocation"
+        },
+        {
+            "name": "default",
+            "label": "Default",
+            "memory": 256,
+            "description": "Default Memory Allocation"
+        },
+        {
+            "name": "medium",
+            "label": "Medium",
+            "memory": 512,
+            "description": "Medium Memory Allocation"
+        },
+        {
+            "name": "big",
+            "label": "Big",
+            "memory": 1024,
+            "description": "Big Memory Allocation"
+        }
+    ],
+    "allowMultipleInstances": false
+},
+"status": "ACTIVE",
+"stores": [],
+"events": [
+    {
+        "label": "On Parse Complete",
+        "name": "onParseComplete",
+        "description": "Callback event for when the file has been downloaded"
+    }
+],
+"functions": [
+    {
+        "label": "Parse Docx template using model",
+        "name": "parse",
+        "description": "The service receives a template ID and file ID of the document already populated",
+        "callbacks": [
+            {
+                "name": "onParseComplete",
+                "maxWaitingTime": 120000,
+                "maxExpectedResponses": 1
+            }
+        ]
+    }
+],
+"configuration":[]
+}

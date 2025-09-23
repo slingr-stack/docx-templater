@@ -1,0 +1,29 @@
+{
+  "name": "docxtemplater",
+  "version": "1.0.0",
+  "description": "Slingr Service to wrap docx-templater library",
+  "main": "appService.js",
+  "scripts": {
+    "start": "node appService.js",
+    "startDev": "nodemon appService.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mati Berlot <mberlot@slingr.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slingr-stack/docx-templater-service.git"
+  },
+  "keywords": [
+    "slingr",
+    "docx templater",
+    "services"
+  ],
+  "dependencies": {
+    "@slingr/slingr-services": "^0.0.8",
+    "docxtemplater": "^3.66.3",
+    "pizzip": "^3.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
