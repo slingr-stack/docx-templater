@@ -7,7 +7,7 @@ require('dotenv').config();
 
 // List files in Google Drive
 async function populateWordTemplate(params) {
-  let {source, recordId, fileName, templateFileId, model} = params;
+  let {fileName, templateFileId, model} = params;
   try {
         
     let file = await svc.files.download(templateFileId);   
@@ -32,8 +32,7 @@ async function populateWordTemplate(params) {
     let name = fileName ? fileName + ".docx" : "undefined.docx"
     let fileProcessed = await svc.files.upload(name, buffer);
     return {
-      source,
-      recordId,
+      ...params,
       fileProcessed
     };
   } catch (err) {
